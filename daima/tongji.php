@@ -2,7 +2,8 @@
 	require_once('head.php');
 	echo '<br/>';
 
-	$db = new mysqli('127.0.0.1', 'linux011', 'ikm-098', 'linux011');
+	require_once('database.php');
+        $db=db_connect();
 	$db->query("set character set 'utf8'");
 ?>
 

@@ -28,7 +28,8 @@
 	$shijianchuo = $_POST['shijianchuo'];
 	$type = $_POST['type'];
 
-	$db = new mysqli('127.0.0.1', 'linux011', 'ikm-098', 'linux011');
+	require_once('database.php');
+        $db=db_connect();
 	$db->query("set names 'utf8'");
 
 //更新数据库
@@ -96,7 +97,7 @@
 	$db->close;
 
 //读数据库
-	$db = new mysqli('127.0.0.1', 'linux011', 'ikm-098', 'linux011');
+        $db=db_connect();
 	$db->query("set character set 'utf8'");
 	$json = array();
 	du('zhsh_wt','dai_ma');		//获取函数所有代码的注释和问题数
@@ -110,7 +111,6 @@
 	$db->close;
 	$json_obj = json_encode($json);
 	echo $json_obj;
-
 
 function sql_yuju($biao,$ziduan,$id){
 	$tmp = 'tmp'.time();

@@ -4,9 +4,10 @@
 	
 	$username = $_GET['username'];
 	$passwd = $_GET['passwd'];
-	
+	require_once('database.php');
+
 	if ($username && $passwd) {
-		$db = new mysqli('127.0.0.1', 'linux011', 'ikm-098', 'linux011');
+        	$db=db_connect();
 		$db->query("set character set 'utf8'");//读库
 
 		$sql = "SELECT id, zhang_hao FROM zhang_hao WHERE zhang_hao='".$username."' AND mi_ma='".$passwd."'";

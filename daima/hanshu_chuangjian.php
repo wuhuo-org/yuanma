@@ -12,7 +12,8 @@
 	$auth_id = $str[1] - 1;
 
 //读数据库：
-	$db = new mysqli('127.0.0.1', 'linux011', 'ikm-098', 'linux011');
+	require_once('database.php');
+       	$db=db_connect();
 	$db->query("set character set 'utf8'");//读库
 
 	$query = "SELECT * FROM han_shu WHERE ming_zi = '" . $name . "'";

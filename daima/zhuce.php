@@ -1,10 +1,12 @@
 <?php	
+	require_once('database.php');
+
 	$username = $_POST['username'];
 	$passwd = $_POST['passwd'];
 	$youxiang = $_POST['youxiang'];
 
 	if ($username && $passwd && $youxiang) {
-		$db = new mysqli('127.0.0.1', 'linux011', 'ikm-098', 'linux011');
+        	$db=db_connect();
 		$db->query("set character set 'utf8'");//读库
 
 		$sql = "SELECT * FROM zhang_hao WHERE zhang_hao = '" . $username. "'";

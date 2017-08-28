@@ -11,7 +11,8 @@
 	$auth = $str[0];
 	$auth_id = $str[1] - 1;
 
-	$db = new mysqli('127.0.0.1', 'linux011', 'ikm-098', 'linux011');
+      	require_once('database.php');
+       	$db=db_connect();
 	$db->query("set character set 'utf8'");
 	
 	$query = "SELECT id,ming_zi FROM `han_shu` WHERE mo_kuai='" . $type . "' ORDER BY ming_zi";
