@@ -47,8 +47,13 @@
 	- 首先在数据库中修改han\_shu表中的mo\_kuai字段
 	- 然后将首页index.php中，文章链接中的type的赋值为前面修改的mo\_kuai字段的值即可
 	- 例如：写了一篇关于内存的文章，里面涉及到了get\_page函数，怎么在该文章的页面中显示该函数的链接：
-		- 首先，将函数get\_page的mo\_kuai字段修改为‘mm’（UPDATE han_shu SET mo_kuai = 'mm' WHERE ming\_zi = 'get\_page'）
-		- 然后，在首页index.php中，添加该文章的条目、设置type的值为‘mm’（<li><a href=wenzhang.php?name=neicun_guanli&type=mm>内存管理</a></li>；其中name是该文章的名字，必须和该文章的文件名相同——文件保存在daima/wenzhang/中）
+		- 首先，将函数get\_page的mo\_kuai字段修改为‘mm’
+
+				UPDATE han_shu SET mo_kuai = 'mm' WHERE ming\_zi = 'get\_page'
+		- 然后，在首页index.php中，添加该文章的条目、设置type的值为‘mm’
+
+				<li><a href=wenzhang.php?name=neicun_guanli&type=mm>内存管理</a></li>；
+		> 其中name必须和该文章的文件名相同——文件保存在daima/wenzhang/neicun_guanli.php
 	- 不足：
 	 	- 一篇文章只能有属于一个“模块”（type），如果写了一篇涉及到两个不同“模块”的文章，则无法将两个“模块”中的函数加载到该文章
 	- 解决思路：
