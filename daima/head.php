@@ -33,8 +33,8 @@
 		?>
 	</div>
 	<div id="end">
-		兰州大学 Dslab Linux内核组<br/>
-		QQ群号：631559816<br/>
+		加入我们！<br/>
+		QQ群号：165308437<br/>
 	</div>
 </div>
 <div id="fengexian"><hr/></div>
