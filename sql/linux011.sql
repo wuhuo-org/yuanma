@@ -1,5 +1,5 @@
-CREATE DATABASE linux011;
-USE linux011;
+CREATE DATABASE database_name;
+USE database_name;
 
 CREATE TABLE `bu_chong` (
   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -78,10 +78,8 @@ CREATE TABLE `fan_dui_hd` (
 CREATE TABLE `han_shu` (
   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `ming_zi` char(40) DEFAULT NULL,
-  `gong_neng` text CHARACTER SET utf8,
   `dai_ma` int(11) DEFAULT NULL,
-  `mo_kuai` char(5) DEFAULT NULL,
-  `zuo_yong` char(5) DEFAULT NULL
+  `mo_kuai` char(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `hui_da` (
@@ -136,5 +134,5 @@ CREATE TABLE `zhu_shi` (
   `shj_ch` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-GRANT ALL ON linux011.* TO 'linux011' IDENTIFIED BY 'ikm-098';
+GRANT ALL ON database_name.* TO 'user_name' IDENTIFIED BY 'database_password';
 FLUSH PRIVILEGES;
