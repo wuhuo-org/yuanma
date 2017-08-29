@@ -13,13 +13,13 @@
 <html>
 <head>
 	<meta charset="UTF-8" />
-	<title>无惑开源之linux0.11</title>
+	<title>无惑开源之ucore OS</title>
 	<link href="css/css.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
 <div id="tou">
 	<div>
-		<h2>linux0.11</h2>
+		<h2>ucore OS</h2>
 	</div>
 	<div id="daohang">
 		<ul>
@@ -33,8 +33,8 @@
 		?>
 	</div>
 	<div id="end">
-		兰州大学 Dslab Linux内核组<br/>
-		QQ群号：631559816<br/>
+		联系我们<br/>
+		QQ群号：165308437<br/>
 	</div>
 </div>
 <div id="fengexian"><hr/></div>

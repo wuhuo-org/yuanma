@@ -55,6 +55,13 @@ function Bianli_mulu(){
         elif [[ $lujing =~ $wenjian_leixin ]]; then
             echo '    '$lujing
 # 将所有的.c和.h文件的内容导出到同一个文件
+#            if [ "$2" == tmp_c ]; then
+                mulu=$1
+                echo 'struct/'${mulu##*/}'/{' >> $2
+                echo '}' >> $2
+                echo 'struct/'${mulu##*/} >> $2
+                echo '}' >> $2
+#            fi
             cat $lujing >> $2
             if [ "$2" == tmp_s ]; then
                 echo '* '$wenjian >> $2
@@ -69,12 +76,18 @@ function Create_SQL_c(){
     declare -i num_line=0
     hanshu_pattern="^[A-Za-z_].*) *{$"
     shuju_pattern="^[A-Za-z_].*[A-Za-z_] *{$"
+    mulu_pattern="^struct/"
     end="^}"
 
     ifs=$IFS
     IFS=
     while read -r line; do
 # 为函数的代码和数据结构的字段创建SQL语句
+        if [[ $line =~ $mulu_pattern ]]; then
+            mulu=$(echo $line | cut -d '/' -f 2)
+            read next_line
+            continue
+        fi
         echo "INSERT INTO dai_ma SET han_shu = $num_hanshu, xu_hao = $num_line, zhu_shi = 0, wen_ti = 0, nei_rong = '$line', shi_jian = now(), gl_1 = 0, shj_ch = now();" >> $3
         if [[ $line =~ $hanshu_pattern ]]; then
             name=$(echo $line | cut -d '(' -f 1)
@@ -89,7 +102,7 @@ function Create_SQL_c(){
         if [[ $line =~ $end ]]; then
             num_line=$num_line+1
 # 为函数和数据结构创建SQL语句
-            echo "INSERT INTO han_shu SET id=$num_hanshu, ming_zi='$name', dai_ma=$num_line, mo_kuai='';" >> $2
+            echo "INSERT INTO han_shu SET id=$num_hanshu, ming_zi='$name', dai_ma=$num_line, mo_kuai='$mulu';" >> $2
             num_hanshu=$num_hanshu+1
             num_line=0
             continue
@@ -105,13 +118,18 @@ function Create_SQL_s(){
     ifs=$IFS
     IFS=
     while read -r line; do
+        if [[ $line =~ $mulu_pattern ]]; then
+            mulu=$(echo $line | cut -d '/' -f 2)
+            read next_line
+            continue
+        fi
 # 为函数的代码和数据结构的字段创建SQL语句
         if [[ $line =~ ^\* ]]; then
             name=$(echo $line | cut -d ' ' -f 2)
             echo $name >> $4
             echo '    asm: '$name
 # 为函数和数据结构创建SQL语句
-            echo "INSERT INTO han_shu SET id=$num_hanshu, ming_zi='$name', dai_ma=$num_line, mo_kuai='';" >> $2
+            echo "INSERT INTO han_shu SET id=$num_hanshu, ming_zi='$name', dai_ma=$num_line, mo_kuai='$mulu';" >> $2
             num_hanshu=$num_hanshu+1
             num_line=0
             continue
