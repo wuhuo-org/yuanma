@@ -35,6 +35,21 @@
 ### 运行系统
 1. 将daima目录下的所有文件拷贝到服务器的相关目录中
 2. 用户可通过网址访问网站
+	- 测试版本地址：wuhuo.org/ucore
+	- 该测试版本基于ucore lab8中的代码，分为以下模块：
+		- boot
+		- debug
+		- driver
+		- fs
+		- init
+		- libs
+		- mm
+		- process
+		- schedule
+		- sync
+		- syscall
+		- trap
+	- 每个模块中包含该模块涉及到的所有函数和数据结构的链接
 
 ### 网站使用说明
 1. 注册登陆后进入网站首页
