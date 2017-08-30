@@ -25,6 +25,7 @@
 		<ul>
 			<li><a href=index.php>返回主页</a></li>
 			<li><a href=tongji.php>贡献统计</a></li>
+			<li><a href="javascript:history.go(-1)">返回上层</a></li>
 		</ul>
 	</div>
 	<div id="denglu">
