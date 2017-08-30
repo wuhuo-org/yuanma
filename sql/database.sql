@@ -79,7 +79,7 @@ CREATE TABLE `han_shu` (
   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `ming_zi` char(40) DEFAULT NULL,
   `dai_ma` int(11) DEFAULT NULL,
-  `mo_kuai` char(5) DEFAULT NULL
+  `mo_kuai` char(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `hui_da` (
